@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import "./css/index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+import Home from './pages/home'
+
 ReactDOM.render(
   <Router history={createHistory()}>
-    <App />
+    <App>
+    <Route path="/" exact component={Home} />
+    </App>
   </Router>,
   document.getElementById("root")
 );
