@@ -6,32 +6,30 @@ import "./css/index.css";
 import * as serviceWorker from "./serviceWorker";
 
 import { createStore } from "redux";
-import allReducers from './reducers'
+import allReducers from "./reducers";
 
 import App from "./App";
 import Home from "./pages/home";
-
-
 
 // Store --> Globalize State
 
 // Action Increment
 const increment = () => {
   return {
-    type: 'INCREMENT'
+    type: "INCREMENT"
   };
 };
 const decrement = () => {
   return {
-    type: 'DECREMENT'
+    type: "DECREMENT"
   };
 };
 
 // Reducer
 
 let store = createStore(
-    allReducers, 
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 //Display in Console
