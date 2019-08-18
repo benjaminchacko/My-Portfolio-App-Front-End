@@ -1,49 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import store from "./store";
 import createHistory from "history/createBrowserHistory";
 import "./css/index.css";
 import * as serviceWorker from "./serviceWorker";
 
-import { createStore } from "redux";
-import allReducers from "./reducers";
-
 import App from "./App";
-import Home from "./pages/home";
-
-// Store --> Globalize State
-
-// Action Increment
-const increment = () => {
-  return {
-    type: "INCREMENT"
-  };
-};
-const decrement = () => {
-  return {
-    type: "DECREMENT"
-  };
-};
-
-// Reducer
-
-let store = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-//Display in Console
-store.subscribe(() => console.log(store.getState()));
-
-// Dispatch
-store.dispatch(decrement());
+import Home from "./pages/Home";
 
 ReactDOM.render(
+  <Provider store={store}>
   <Router history={createHistory()}>
     <App>
       <Route path="/" exact component={Home} />
+      <Route path="/home" exact component={Home} />
+      {/* <Route path="/blogs" component={Blog} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path='/signup' component={SignUp} />
+      <Route path="/signout" component={Signout} />
+      <Route path="/signin" component={Signin} /> */}
     </App>
-  </Router>,
+  </Router>
+  </Provider>,
   document.getElementById("root")
 );
 

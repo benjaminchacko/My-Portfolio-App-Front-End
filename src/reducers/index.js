@@ -1,10 +1,17 @@
-import counterReducer from './counter';
-import loggedReducer from './isLogged';
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from "redux-form";
 
-const allReducers = combineReducers({
+import auth from './auth';
+import counterReducer from './counter';
+import blogReducer from "./blog";
+
+
+
+const Reducers = combineReducers({
+    auth,
+    blogs: blogReducer,
     counter: counterReducer,
-    isLogged: loggedReducer
+    form: formReducer,
 })
 
-export default allReducers;
+export default Reducers;
