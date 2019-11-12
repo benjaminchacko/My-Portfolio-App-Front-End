@@ -3,7 +3,6 @@ import { FilePond, File, registerPlugin } from "react-filepond";
 import firebase from "firebase";
 import StorageDataTable from "./StorageDataTable";
 import config from '../../../firebase/firebase'
-//import './App.css';
 
 // Import FilePond styles
 import "filepond/dist/filepond.min.css";
